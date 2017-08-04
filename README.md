@@ -1,6 +1,9 @@
 # PachinkoPinball
 A very basic pachinko-style game in Javascript.
-![alt text](https://github.com/fraricce/PachinkoPinball/blob/master/pinball-javascript-screen-shot.png?raw=true)
+
+<p align="center">
+  <img src="https://github.com/fraricce/PachinkoPinball/blob/master/pinball-javascript-screen-shot.png?raw=true" />
+</p>
 
 Physics of the game is implemented by the awesome [Matter.js engine](http://brm.io/matter-js/).
 
