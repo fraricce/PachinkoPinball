@@ -6,11 +6,11 @@ Physics of the game is implemented by the awesome [Matter.js engine](http://brm.
 
 The project structure is very basic.
 
-##Installation
+## Installation
 
 * Clone this project
 * Run npm install in the project's root folder
 
-##To run the project
+## To run the project
 
 node index.js
