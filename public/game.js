@@ -6,20 +6,16 @@ var pScore = 0;
 var allBalls = 3;
 
 $(document).on( "pinScored", function( event, arg1, arg2 ) {
-    
     pScore += 10;
     $('#divScore p').html(pScore);
 });
 
 $(document).on( "ballLaunched", function( event, arg1, arg2 ) {
-    
     allBalls--;
     $('#divBalls p').html(allBalls);
 });
 
-$(document).on( "restart", {
-    foo: "bar"
-}, function( event, arg1, arg2 ) {
+$(document).on( "restart", function( event, arg1, arg2 ) {
     allBalls = 3;
     $('#divBalls p').html(allBalls);
 });
@@ -37,7 +33,7 @@ $(document).keypress(function(e) {
     }    
 
     if (e.which == KEY_SPACE) {
-        ball = Bodies.circle(760, 500, 10, 10);
+        ball = Bodies.circle(770, 500, 8, 8);
         ball.restitution = 0.7;
         ball.frictionAir = 0.001;
         World.add(engine.world, [ball]);
@@ -46,7 +42,7 @@ $(document).keypress(function(e) {
     
     if (e.which == KEY_CR) {
         $(document).trigger( "ballLaunched", [ "bim", "baz" ] );
-        let force = (Math.random() * (0.03 - 0.04) + 0.04);
+        let force = (Math.random() * (0.023 - 0.028) + 0.028);
         Body.applyForce(ball, ball.position, { x: 0, y: force });
         return;
     }
@@ -81,35 +77,35 @@ var render = Render.create({
     }});
 
 // table walls
-var leftWall = Bodies.rectangle(10, 10, 10, 1300, { isStatic: true });
-var rightWall = Bodies.rectangle(780, 10, 10, 1300, { isStatic: true });
-var rightTube = Bodies.rectangle(740, 400, 10, 400, { isStatic: true });
-var angledWall = Bodies.rectangle(740, 230, 10, 70, { isStatic: true });
+var leftWall = Bodies.rectangle(5, 10, 10, 1300, { isStatic: true });
+var rightWall = Bodies.rectangle(795, 10, 10, 1300, { isStatic: true });
+var rightTube = Bodies.rectangle(750, 400, 10, 400, { isStatic: true });
+var angledWall = Bodies.rectangle(760, 230, 10, 70, { isStatic: true });
 var ground = Bodies.rectangle(400, 600, 800, 60, { isStatic: true });
 var roofTop = Bodies.rectangle(400, 10, 800, 20, { isStatic: true });
 Body.rotate(angledWall, -Math.PI/5, {x: 630, y: 160});
 
 // table pins
 var pings = [];
-var x, xStart = 50;
-var y = 160;
-var step = 20;
+var x, xStart = 30;
+var y = 140;
+var step = 10;
 var firstRow = true;
 
-for (var k=0;k<5;k++) {
+for (var k=0;k<12;k++) {
 
     x = xStart;
-    
-    for (var i=0;i<10;i++){
-        pings.push(Bodies.circle(x+=step+40,y,10, { isStatic: true, id: "p" + x + y }))
+
+    for (var i=0;i<26;i++){
+        pings.push(Bodies.circle(x+=step+15,y,3, { isStatic: true, id: "p" + x + y }))
     }
 
-    y += 60;
+    y += 26;
 
-    if (xStart == 18) {
-        xStart = 50;
+    if (xStart == 16) {
+        xStart = 30;
     } else {
-        xStart = 18;
+        xStart = 16;
     }
 }
 
@@ -126,7 +122,7 @@ Events.on(engine, 'collisionStart collisionActive collisionEnd', function (event
     }
 });
 
-var ball = Bodies.circle(760, 500, 10, 10);
+var ball = Bodies.circle(777, 500, 8, 8);
 
 ball.restitution = 0.7;
 ball.frictionAir = 0.001;
