@@ -16,4 +16,7 @@ The project structure is very basic.
 
 ## Run the project
 
-node index.js
+* node index.js
+* Point your borwser to http://localhost:3000
+* Just press Enter to launch the ball
+
